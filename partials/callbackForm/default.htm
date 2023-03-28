@@ -1,0 +1,48 @@
+<div id="callbackForm"
+    class="hidden flex justify-center items-center fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-40">
+
+    <div class="form-container transition transition-all duration-300 transform scale-90
+    bg-white px-4 rounded-lg shadow-lg md:w-4/5 lg:w-1/2 xl:w-full xl:max-w-lg">
+
+        <div class="flex justify-between mt-4 mx-2">
+            <p class="text-2xl">Callback</p>
+            <button data-modal="callbackForm" data-action="close">
+                {% partial 'svg/close' class='w-4' %}
+            </button>
+        </div>
+
+        <form class="my-6 px-4" data-request="{{ __SELF__ }}::onFormSubmit">
+
+            {{ form_token() }}
+
+            <div class="flex flex-col mb-4">
+                <label class="text-gray-600 text-sm12 mb-1" for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"
+                    class="rounded outline-brand shadow-md border-1 border-gray-300 px-4 py-2"
+                    placeholder="+7 (___) ___-__-__">
+            </div>
+
+            <div class="flex flex-col mb-3">
+                <label class="text-gray-600 text-sm12 mb-1" for="comments">Message:</label>
+                <textarea class="shadow-md border-1 border-gray-300 rounded outline-brand px-4 py-3" id="comments"
+                    name="comments" rows="3"></textarea>
+            </div>
+
+            <div class="flex flex-col">
+                {% partial '@recaptcha' %}
+            </div>
+
+            {% partial 'policy-checkbox' %}
+
+            {% partial 'button' type='submit' class='w-full' caption='Send' %}
+
+            <div class="flex items-center bg-gray-50 rounded px-3 py-2 mx-auto mt-4">
+                {% partial 'svg/lock.htm' className='w-7 mr-3' %}
+                <span class="text-xs">Your data secured.</span>
+            </div>
+
+            <div class="my-2" id="{{ __SELF__ }}_forms_flash"></div>
+        </form>
+    </div>
+
+</div>

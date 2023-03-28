@@ -1,0 +1,6 @@
+{% if __SELF__.menuItems %}
+<ul id="main-menu"
+    class="hidden flex flex-col lg:flex lg:flex-row pb-36 md:pb-0 lg:items-center justify-between">
+    {% partial __SELF__ ~ "::items" items=__SELF__.menuItems %}
+</ul>
+{% endif %}

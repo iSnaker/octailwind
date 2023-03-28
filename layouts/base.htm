@@ -1,0 +1,60 @@
+[genericForm callbackForm]
+rules[phone] = "required|regex:/^((\+7)+\ +\(+([0-9]){3}\)\ ([0-9]){3}\-([0-9]){2}\-([0-9]){2})$/"
+messages_success = "Form submitted successfully"
+messages_errors = "Form has errors"
+mail_enabled = 1
+mail_subject = "Callback form"
+mail_recipients[] = ""
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+
+==
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ this.page.meta_title }}</title>
+    <meta name="keywords" content="{{ this.page.seo_keywords }}">
+    <meta name="description" content="{{ this.page.meta_description }}">
+
+    {% partial 'favicon' %}
+
+    {% if this.environment == 'development' %}
+    <link rel="stylesheet" href="{{ 'assets/css/theme.css'|theme }}">
+    {% else %}
+    <link rel="stylesheet" href="{{ ['assets/css/theme.css']|theme }}">
+    {% endif %}
+</head>
+
+<body class="w-full">
+
+    {% partial 'header' %}
+    <div id="content">
+        {% page %}
+    </div>
+    {% partial 'footer' %}
+    {% component 'callbackForm' %}
+</body>
+
+<!-- fancybox -->
+<script src="{{ 'assets/js/fancybox.js'|theme }}"></script>
+<link rel="stylesheet" href="{{ 'assets/css/fancybox.css'|theme }}">
+
+<!-- scripts -->
+<script src="{{ 'assets/js/jquery.min.js'| theme }}"></script>
+<script src="{{ 'assets/js/imask.min.js' | theme }}"></script>
+<script src="{{ 'assets/js/app.js'|theme }}"></script>
+
+{% scripts %}
+{% framework extras %}
+{% partial 'analytics' %}
+
+</html>

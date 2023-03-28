@@ -1,0 +1,19 @@
+{% for item in items if not item.viewBag.isHidden %}
+<div class="flex flex-1 flex-col">
+    {% if item.url %}
+    <a class="font-light text-sm" href="{{ item.url }}">{{ item.title }}</a>
+    {% else %}
+    <p class="mb-3">{{ item.title }}</p>
+    {% endif %}
+
+    {% if item.items %}
+    {% for item in item.items if not item.viewBag.isHidden %}
+    {% if item.url %}
+    <a class="font-light text-sm mb-1 transition-all duration-200 {{ item.isActive ? ' text-gray-600 hover:text-brand' : 'hover:text-brand' }}"
+        href="{{ item.url }}">{{
+        item.title }}</a>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+</div>
+{% endfor %}

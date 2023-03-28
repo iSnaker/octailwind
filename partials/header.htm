@@ -1,0 +1,29 @@
+[viewBag]
+
+[staticMenu "mainMenu"]
+code = "main"
+==
+
+<header id="header"
+    class="top-0 left-0 right-0 w-full bg-white z-30 backdrop-blur bg-opacity-60 hover:bg-opacity-90 shadow-md transition-all duration-1000 py-2">
+    <div class=" mx-6 flex items-center">
+
+        <a href="{{ 'home'|page }}">
+            <img class="w-[200px]" src="{{ 'assets/images/logo.svg'|theme }}" alt="">
+        </a>
+
+        <div class="flex items-center flex-1 ml-8">
+            {% component 'mainMenu' %}
+        </div>
+
+        <button class="flex relative px-1 ml-5" href="/cart">
+            {% partial 'svg/search' class='w-4 h-4 fill-gray-400 hover:fill-brand transition-colors duration-300'
+            %}
+        </button>
+
+        <button data-menu-toggle class="lg:hidden">
+            {% partial 'svg/menu' class='w-6 fill-brand' %}
+        </button>
+    </div>
+
+</header>

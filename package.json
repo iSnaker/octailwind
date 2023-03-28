@@ -1,0 +1,24 @@
+{
+    "name": "octailwind",
+    "version": "1.0.0",
+    "description": "Tailwind-based theme from October CMS",
+    "main": "index.js",
+    "scripts": {
+        "tailwind": "npx tailwindcss -i ./assets/css/app.css -o ./assets/css/theme.css --watch",
+        "live": "browser-sync start --proxy \"tailwind.local:8888\" --files \"./**/*.*\"",
+        "build-css": "npx tailwindcss -i ./assets/css/app.css -o ./assets/css/theme.css --minify",
+        "serve": "npm run tailwind & npm run live"
+    },
+    "author": "iSnaker",
+    "license": "ISC",
+    "devDependencies": {
+        "tailwindcss": "^3.0.23",
+        "webpack-cli": "^4.9.2"
+    },
+    "dependencies": {
+        "autoprefixer": "^10.4.4",
+        "browser-sync": "^2.27.9",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "webpack": "^5.70.0"
+    }
+}

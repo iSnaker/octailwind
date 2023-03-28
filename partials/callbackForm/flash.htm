@@ -1,0 +1,40 @@
+{% spaceless %}
+
+    {% if type == 'success' %}
+        {% set className = 'bg-green-200 border-green-400 text-xl py-8 px-5 text-center' %}
+    {% endif %}
+
+    {% if type == 'danger' %}
+        {% set className = 'bg-red-200 border-red-300' %}
+    {% endif %}
+
+    <div class="text-xs p-3 border rounded {{ className }}" role="alert">
+
+        {% if title %}
+            <h4>{{ title }}</h4>
+        {% endif %}
+
+        {% if content %}
+            <p>{{ content }}</p>
+        {% endif %}
+
+        {% if list %}
+            <ul class="list-disc">
+                {% for item in list %}
+                    <li class="pl-1 ml-4 list">{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
+
+    {% if jscript %}
+        <script>
+            {% if errors %}
+            var errors = JSON.parse('{{ errors|raw }}');
+            {% endif %}
+            {{ jscript|raw }}
+        </script>
+    {% endif %}
+
+{% endspaceless %}

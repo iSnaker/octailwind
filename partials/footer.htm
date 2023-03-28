@@ -1,0 +1,20 @@
+[viewBag]
+
+[staticMenu "footerMenu"]
+code = "footer"
+==
+
+<footer
+    class="relative flex flex-col border-t border-solid border-gray-200 bg-gradient-to-b from-gray-200 to-gray-50 pb-8">
+
+    <div class="container relative py-12 z-10">
+        {% component 'footerMenu' %}
+    </div>
+
+    <img class="mx-auto w-48 opacity-50" src="{{ 'assets/images/logo.svg'|theme }}" alt="">
+
+    <div class="flex text-xs font-light text-center items-center justify-center">
+        <p class="mr-2"> {{ "now"|date("Y") }}</p>
+        <p><a href="https://github.com/iSnaker">&copy; iSnaker</a></p>
+    </div>
+</footer>

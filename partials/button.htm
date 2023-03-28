@@ -1,0 +1,16 @@
+<button
+
+    type="{{ type ? type : 'button' }}"
+
+    {% if modal %}
+        data-modal="{{ modal }}"
+    {% endif %}
+
+    {% if action %}
+        data-action="{{ action }}"
+    {% endif %}
+
+class="bg-brand hover:bg-brand-hover hover:shadow-md  rounded-lg font-medium px-8 py-4
+text-white text-sm14 transform transition duration-300 active:scale-95 {{ class }}">
+{{ caption }}
+</button>

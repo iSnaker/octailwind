@@ -1,0 +1,29 @@
+title = "Homepage"
+meta_title="Octailwind Homepage"
+url = "/"
+layout = "base"
+is_hidden = 0
+==
+<div class="h-screen lg:h-auto bg-gradient-to-b from-red-200 to-blue-200">
+    <div class="container">
+        <div class="py-64 text-center">
+
+            <img class="max-w-xs lg:max-w-4xl mx-auto" src="{{'assets/images/logo.svg'|theme}}" alt="">
+
+            <p class="text-2xl font-thin tracking-wide border-b border-b-slate-300 pb-3 mb-3">tailwind css ✖ october cms
+                🚀
+            </p>
+            <p class="font-thin tracking-wide">with fancybox, some useful JS and modals</p>
+
+            <button data-modal="callbackForm"
+                class="mt-8 bg-brand hover:bg-brand-hover hover:text-white rounded-md text-sm px-3 py-2 transition-all duration-150">toggle
+                modal
+                example</button>
+
+            <a data-fancybox href="{{'assets/images/theme-preview.png'|theme}}"
+                class="mt-8 bg-brand hover:bg-brand-hover hover:text-white rounded-md text-sm px-3 py-2 transition-all duration-150">
+                show fancybox
+                example</a>
+        </div>
+    </div>
+</div

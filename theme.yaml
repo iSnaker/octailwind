@@ -1,0 +1,7 @@
+name: 'Octailwind'
+description: 'Tailwind-based theme from October CMS'
+author: iSnaker
+homepage: 'https://github.com/iSnaker/octailwind'
+code: ''
+require:
+    Martin.Forms

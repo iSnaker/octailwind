@@ -1,0 +1,11 @@
+<div class="bg-gradient-to-b from-white to-gray-50 border-b border-solid border-gray-100">
+    <div class="container breadcrumbs text-xs px-4 lg:px-0 mt-12 pt-16 lg:pt-6 pb-2">
+        {% for link in links %}
+            {% if link.href %}
+                <a href="{{ link.href }}">{{ link.title }}</a> &rightarrow;
+            {% else %}
+                <span class="text-gray-500">{{ link.title }}</span>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
