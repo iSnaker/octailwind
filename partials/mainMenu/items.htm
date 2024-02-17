@@ -1,18 +1,21 @@
-{% for item in items if not item.viewBag.isHidden %}
+{% for item in items %}
 
-{% if item.items %}
-<li class="flex flex-col group lg:flex-row items-center
-            lg:items-center relative dropdown tracking-brand cursor-pointer  ml-4 lg:mx-4 xl:mx-0">
+    {% if not item.viewBag.isHidden %}
+        {% if item.items %}
+            <li class="flex flex-col group lg:flex-row items-center lg:items-center relative dropdown tracking-brand cursor-pointer  ml-4 lg:mx-4 xl:mx-0">
 
-    {% if item.url %}
-    <a href="{{ item.url }}" {% else %} <span {% endif %}
+                {% if item.url %}
+                <a href="{{ item.url }}"
+                {% else %} <span
+                {% endif %}
+
         class="{{ item.isActive or item.isChildActive ? 'text-brand bg-brand bg-opacity-10' : 'text-black border-transparent' }}
         px-4 py-2 transition-all duration-300 rounded-lg flex text-md items-center justify-center group-hover:text-brand hover:bg-brand hover:bg-opacity-5">
         {{ item.title }}
 
         <svg class="hidden lg:flex lg:ml-2 transform fill-black group-hover:fill-brand" width="9" height="6"
-            viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4.8064 6L0.806396 0L8.8064 5.49667e-07L4.8064 6Z" />
+             viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.8064 6L0.806396 0L8.8064 5.49667e-07L4.8064 6Z"/>
         </svg>
 
         {{ item.url ? '</a>' : '</span>' }}
@@ -28,26 +31,27 @@
         </ul>
     </div>
 
-</li>
+            </li>
 
-{% else %}
+        {% else %}
 
-<li class=" {{ sub ? 'xl:mt-1' : 'whitespace-nowrap' }}   tracking-brand mx-4 xl:mx-0 text-xs xl:text-md">
+            <li class=" {{ sub ? 'xl:mt-1' : 'whitespace-nowrap' }}   tracking-brand mx-4 xl:mx-0 text-xs xl:text-md">
 
-    {% if item.url %}
-    <a href="{{ item.url }}" {% else %} <span {% endif %} class="flex hover:bg-brand hover:bg-opacity-5 items-center justify-between whitespace-no-wrap
+                {% if item.url %}
+                <a href="{{ item.url }}" {% else %} <span {% endif %} class="flex hover:bg-brand hover:bg-opacity-5 items-center justify-between whitespace-no-wrap
                       font-light px-2 text-base transition-all duration-300 cursor-pointer
                     {{ sub
-            ? 'whitespace-nowrap px-7 py-2 lg:my-0'
-            : 'py-3 xl:py-2 rounded-lg mx-3 px-4' }}
+                ? 'whitespace-nowrap px-7 py-2 lg:my-0'
+                : 'py-3 xl:py-2 rounded-lg mx-3 px-4' }}
                 {{ item.isActive ? ' text-brand bg-brand bg-opacity-10' : 'text-black hover:text-brand' }}
                 {{ item.isActive and not sub ? 'border-brand' : ' border-transparent' }}
                 {{ item.isActive and sub ? 'bg-gray-50' : '' }}
                 ">
         {{ item.title }}
 
-        {{ item.url ? '</a>' : '</span>' }}
+                    {{ item.url ? '</a>' : '</span>' }}
 
-</li>
-{% endif %}
+            </li>
+        {% endif %}
+    {% endif %}
 {% endfor %}
